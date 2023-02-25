@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  db:
+    image: arm64v8/postgres:12-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_development
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  web:
+    build: .
+    volumes:
+      - .:/app
+      - bundle-data:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    tty: true
+volumes:
+  postgresql-data:
+  bundle-data:
