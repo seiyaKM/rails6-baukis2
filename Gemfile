@@ -36,7 +36,7 @@ gem 'valid_email2'
 gem 'nokogiri'
 
 group :test do
-  gem 'capybara', ">= 2.15"
+  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'rspec-rails'
@@ -45,7 +45,12 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Prettier for Ruby [https://github.com/prettier/plugin-ruby]
+  gem 'prettier_print'
+  gem 'syntax_tree'
+  gem 'syntax_tree-haml'
+  gem 'syntax_tree-rbs'
 end
 
 group :development do
