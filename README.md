@@ -1,24 +1,21 @@
-# README
+# はじめに
+本ソースコードは「Ruby on Rails6 実戦ガイド」のハンズオンです
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 環境
+- docker
+- docker compose
+- vscode
+    - dev container
+    - prettier
+    - prettier+
 
-Things you may want to cover:
+# memo
+- VSCode上でrubyコードをフォーマット（prettierを使って）するため、Dev Containerを利用し、VSCodeとコンテナを接続
+このことで、コンテナに依存したExtensionを追加できるようになり、フォーマッターが効くようになった
 
-- Ruby version
+- Dev Container内でgitの設定し直しかと思ったが、ホスト側の設定を引き継いでいるようで特に設定する必要なさそう
+    - ただ、push時「Could not read from remote repository」が表示されたためリモートを再指定する必要がありそう？
+    ホスト側のターミナルでpushすればいいので一旦気にしない
 
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+- 利用してるnodeのバージョンだとwebpackerのバンドルに失敗する
+環境変数に `NODE_OPTIONS=--openssl-legacy-provider` を指定しておくとうまくいく

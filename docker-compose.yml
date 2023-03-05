@@ -12,6 +12,8 @@ services:
       - 5432:5432
   web:
     build: .
+    environment:
+      NODE_OPTIONS: --openssl-legacy-provider
     volumes:
       - .:/app
       - bundle-data:/usr/local/bundle
